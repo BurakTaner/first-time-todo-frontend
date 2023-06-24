@@ -34,9 +34,11 @@
 {#if message}
   <p class="succes-msg">{message}</p>
 {/if}
-<form on:submit|preventDefault={register}>
-  <input type="text" bind:value={username} />
-  <input type="text" bind:value={password} />
+<form on:submit|preventDefault={register} class="auth-form">
+  <label for="username" class="auth-label">Username</label>
+  <input type="text" bind:value={username} class="auth-input" id="username" />
+  <label for="password" class="auth-label">Password</label>
+  <input type="text" bind:value={password} class="auth-input" id="password" />
   <button type="submit">Submit</button>
 </form>
 
