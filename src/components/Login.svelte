@@ -28,8 +28,10 @@
   }
 </script>
 
-<form on:submit|preventDefault={login}>
-  <input type="text" bind:value={username} />
-  <input type="text" bind:value={password} />
+<form on:submit|preventDefault={login} class="auth-form">
+  <label for="username" class="auth-label">Username</label>
+  <input type="text" bind:value={username} class="auth-input" id="username" />
+  <label for="password" class="auth-label">Password</label>
+  <input type="text" bind:value={password} class="auth-input" id="password" />
   <button type="submit">Submit</button>
 </form>

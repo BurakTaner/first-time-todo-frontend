@@ -24,21 +24,49 @@
 </script>
 
 {#if !$userStore}
-  <h2 class="form-title">{title}</h2>
-  {#if displayLgn || registered}
-    <Login />
-  {:else}
-    <Register on:succes={changeDisplayOnRegister} />
-  {/if}
+  <section id="auth-sec">
+    <h2>{title}</h2>
+    {#if displayLgn || registered}
+      <Login />
+    {:else}
+      <Register on:succes={changeDisplayOnRegister} />
+    {/if}
+    <button on:click={changeForm} class="chang-btn"
+      >{title === "Login" ? "Register" : "Login"}</button
+    >
+  </section>
 {:else}
   <Todo />
 {/if}
 
-<button on:click={changeForm}>Change</button>
+<style lang="scss">
+  $form-bg: rgba(220, 31, 22, 0.6);
+  $inp-bg: rgb(87, 30, 89);
 
-<style>
-  .form-title {
-    text-align: center;
-    margin-top: 150px;
+  :global(.auth-form) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    background: $form-bg;
+    padding: 20px;
+
+    :global(.auth-label) {
+      margin-bottom: -20px;
+    }
+  }
+
+  #auth-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100%;
+    height: 100%;
+  }
+
+  .chang-btn {
+    margin-top: 50px;
   }
 </style>
