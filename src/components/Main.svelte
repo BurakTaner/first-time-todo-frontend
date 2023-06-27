@@ -36,34 +36,37 @@
     >
   </section>
 {:else}
-  <Todo />
+  <section id="todos-sec" class="todos-sec">
+    <Todo />
+  </section>
 {/if}
 
 <style lang="scss">
   $form-bg: rgba(220, 31, 22, 0.6);
   $inp-bg: rgb(87, 30, 89);
 
+  :global(*) {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
   :global(.auth-form) {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    width: 100%;
+    gap: 25px;
     height: 100%;
     background: $form-bg;
     padding: 20px;
-
-    :global(.auth-label) {
-      margin-bottom: -20px;
-    }
   }
 
-  #auth-sec {
+  #auth-sec,
+  :global(.todos-sec) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100%;
-    height: 100%;
   }
 
   .chang-btn {

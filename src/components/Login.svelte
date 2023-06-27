@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type User from "../interfaces/User";
   import { userStore } from "../ts/userStore";
   let username: string;
   let password: string;
@@ -18,8 +19,9 @@
           },
         });
         if (response.status === 200) {
-          localStorage.setItem("user", JSON.stringify(user));
-          userStore.set({ username, password });
+          const resUser: User = await response.json();
+          localStorage.setItem("user", JSON.stringify(resUser));
+          userStore.set(resUser);
         }
       } catch (e) {
         console.log(e);
@@ -32,6 +34,11 @@
   <label for="username" class="auth-label">Username</label>
   <input type="text" bind:value={username} class="auth-input" id="username" />
   <label for="password" class="auth-label">Password</label>
-  <input type="text" bind:value={password} class="auth-input" id="password" />
+  <input
+    type="password"
+    bind:value={password}
+    class="auth-input"
+    id="password"
+  />
   <button type="submit">Submit</button>
 </form>
