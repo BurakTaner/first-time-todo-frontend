@@ -24,7 +24,7 @@
           userStore.set(resUser);
         }
       } catch (e) {
-        console.log(e);
+        console.error(e);
       }
     }
   }
