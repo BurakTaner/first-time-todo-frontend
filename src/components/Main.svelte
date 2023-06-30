@@ -2,7 +2,7 @@
   import { userStore } from "../ts/userStore";
   import Login from "../components/Login.svelte";
   import Register from "../components/Register.svelte";
-  import Todo from "./Todo.svelte";
+  import Todo from "./todo/Todo.svelte";
   let displayLgn = true;
   let title = "Login";
   let registered = false;
